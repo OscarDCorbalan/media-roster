@@ -1,6 +1,6 @@
 import media
 
-def getMovies():
+def getMedia():
     # Create some movies
     toy_story = media.Movie(
         "Toy Martian",

@@ -111,7 +111,7 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       {media_tiles}
     </div>
   </body>
@@ -121,7 +121,7 @@ main_page_content = '''
 
 # A single media entry html template
 media_tile_content = '''
-<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 media-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{media_title}</h2>
 </div>

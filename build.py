@@ -2,4 +2,4 @@ import data
 import web
 
 media = data.getMedia()
-web.open_movies_page(media)
+web.open_media_page(media)

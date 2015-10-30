@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Movie collection</title>
+    <title>My media collection</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -29,11 +29,11 @@
             width: 100%;
             height: 100%;
         }
-        .movie-tile {
+        .media-tile {
             margin-bottom: 20px;
             padding-top: 20px;
         }
-        .movie-tile:hover {
+        .media-tile:hover {
             background-color: #EEE;
             cursor: pointer;
         }
@@ -59,7 +59,7 @@
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.media-tile', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -69,9 +69,9 @@
               'frameborder': 0
             }));
         });
-        // Animate in the movies when the page loads
+        // Animate in the medias when the page loads
         $(document).ready(function () {
-          $('.movie-tile').hide().first().show("fast", function showNext() {
+          $('.media-tile').hide().first().show("fast", function showNext() {
             $(this).next("div").show("fast", showNext);
           });
         });
@@ -83,7 +83,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+            <img src="img/cross.png"/>
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
@@ -96,39 +96,39 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Movie collection</a>
+            <a class="navbar-brand" href="#">My media collection</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ej3ioOneTy8" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="ej3ioOneTy8" data-toggle="modal" data-target="#trailer">
     <img src="http://pics.filmaffinity.com/The_Martian-972637166-large.jpg" width="220" height="342">
     <h2>Toy Martian</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TnYsf2Yv8i8" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="TnYsf2Yv8i8" data-toggle="modal" data-target="#trailer">
     <img src="http://pics.filmaffinity.com/Battlestar_Galactica_TV-925903043-large.jpg" width="220" height="342">
     <h2>Battlestar Galactica</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ZC9XPvePksc" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="ZC9XPvePksc" data-toggle="modal" data-target="#trailer">
     <img src="http://i.jeded.com/i/torrente-the-stupid-arm-of-the-law-torrente-el-brazo-tonto-de-la-ley.15154.jpg" width="220" height="342">
     <h2>Torrente</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zSWdZVtXT7E" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="zSWdZVtXT7E" data-toggle="modal" data-target="#trailer">
     <img src="http://pics.filmaffinity.com/Interstellar-366875261-large.jpg" width="220" height="342">
     <h2>Interstellar 2014</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pKFUZ10Wmbw" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="pKFUZ10Wmbw" data-toggle="modal" data-target="#trailer">
     <img src="http://pics.filmaffinity.com/Star_Trek-815589716-large.jpg" width="220" height="342">
     <h2>Star Trek XI</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vBXBtORI7pE" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 media-tile text-center" data-trailer-youtube-id="vBXBtORI7pE" data-toggle="modal" data-target="#trailer">
     <img src="http://pics.filmaffinity.com/Braveheart-898928745-large.jpg" width="220" height="342">
     <h2>Braveheart</h2>
 </div>

@@ -1,10 +1,4 @@
-import webbrowser
-import os
-import re
 
-
-# Styles and scripting for the page
-main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,11 +77,7 @@ main_page_head = '''
         });
     </script>
 </head>
-'''
 
-
-# The main page layout and title bar
-main_page_content = '''
   <body>
     <div class="modal" id="trailer">
       <div class="modal-dialog">
@@ -112,54 +102,37 @@ main_page_content = '''
       </div>
     </div>
     <div class="container">
-      {movie_tiles}
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ej3ioOneTy8" data-toggle="modal" data-target="#trailer">
+    <img src="http://pics.filmaffinity.com/The_Martian-972637166-large.jpg" width="220" height="342">
+    <h2>Toy Martian</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TnYsf2Yv8i8" data-toggle="modal" data-target="#trailer">
+    <img src="http://pics.filmaffinity.com/Battlestar_Galactica_TV-925903043-large.jpg" width="220" height="342">
+    <h2>Battlestar Galactica</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ZC9XPvePksc" data-toggle="modal" data-target="#trailer">
+    <img src="http://i.jeded.com/i/torrente-the-stupid-arm-of-the-law-torrente-el-brazo-tonto-de-la-ley.15154.jpg" width="220" height="342">
+    <h2>Torrente</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zSWdZVtXT7E" data-toggle="modal" data-target="#trailer">
+    <img src="http://pics.filmaffinity.com/Interstellar-366875261-large.jpg" width="220" height="342">
+    <h2>Interstellar 2014</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pKFUZ10Wmbw" data-toggle="modal" data-target="#trailer">
+    <img src="http://pics.filmaffinity.com/Star_Trek-815589716-large.jpg" width="220" height="342">
+    <h2>Star Trek XI</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vBXBtORI7pE" data-toggle="modal" data-target="#trailer">
+    <img src="http://pics.filmaffinity.com/Braveheart-898928745-large.jpg" width="220" height="342">
+    <h2>Braveheart</h2>
+</div>
+
     </div>
   </body>
 </html>
-'''
-
-
-# A single movie entry html template
-movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
-</div>
-'''
-
-
-def create_movie_tiles_content(movies):
-    # The HTML content for this section of the page
-    content = ''
-    for movie in movies:
-        # Extract the youtube ID from the url
-        youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.preview)
-        youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.preview)
-        preview = (youtube_id_match.group(0) if youtube_id_match else None)
-
-        # Append the tile for the movie with its content filled in
-        content += movie_tile_content.format(
-            movie_title=movie.title,
-            poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=preview
-        )
-    return content
-
-
-def open_movies_page(movies):
-    # Create or overwrite the output file
-    output_file = open('index.html', 'w')
-
-    # Replace the movie tiles placeholder generated content
-    rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
-
-    # Output the file
-    output_file.write(main_page_head + rendered_content)
-    output_file.close()
-
-    # open the output file in the browser (in a new tab, if possible)
-    url = os.path.abspath(output_file.name)
-
-    #TODO uncomment this for project handout
-    #webbrowser.open('file://' + url, new=2)

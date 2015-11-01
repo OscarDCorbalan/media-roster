@@ -3,7 +3,7 @@ import media
 def getMedia():
     # Create some movies
     toy_story = media.Movie(
-        "Toy Martian",
+        "The Martian",
         "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet.",
         "img/The_Martian.jpg",
         "https://www.youtube.com/watch?v=ej3ioOneTy8")

@@ -20,6 +20,16 @@ main_page_head = '''
         body {
             padding-top: 80px;
         }
+        .text-align-center{text-align:center}
+        #navbar{
+            background: #E44424;
+        }
+        .navbar-brand{
+            color: #91C3DC;
+        }
+        #navbar-title{
+            color: #FFF;
+        }
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -36,19 +46,29 @@ main_page_head = '''
             height: 100%;
         }
         .media-tile {
-            margin-bottom: 20px;
+            padding-bottom: 20px;
             padding-top: 20px;
+            display: inline-block;
             position: relative;
-            overflow: hidden;
+            width: 430px;
+            height: 390px;
         }
-        .media-tile:hover {
-            background-color: #EEE;
-            cursor: pointer;
-        }
-        .media-tile-data{
+        .media-info{
+            text-align: left;
             position: absolute;
-            bottom: 0px;
-            animation-duration:
+            top: 0;
+            left: 0;
+            padding-left: 20px;
+            background-color: #67BCDB;
+            height: 100%;
+            width: 100%;
+            color: #FFF;
+            opacity: 0;
+            transition: ease-in-out 150ms opacity;
+        }
+        .media-tile:hover>.media-info{
+            opacity: 0.95;
+            transition: ease-in-out 400ms opacity;
         }
         .scale-media {
             padding-bottom: 56.25%;
@@ -82,12 +102,6 @@ main_page_head = '''
               'frameborder': 0
             }));
         });
-        // Animate in the medias when the page loads
-        $(document).ready(function () {
-          $('.media-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show("fast", showNext);
-          });
-        });
     </script>
 </head>
 '''
@@ -112,15 +126,13 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
+            <a id="navbar-title" class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-        <div id="carousel">
-            {media_tiles}
-        </div>
+    <div class="container-fluid text-align-center">
+      {media_tiles}
     </div>
   </body>
 </html>
@@ -129,12 +141,11 @@ main_page_content = '''
 
 # A single media entry html template
 media_tile_content = '''
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 media-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <div class="media-tile-front">
-        <img src="{poster_image_url}" width="220" height="342">
-    </div>
-    <div class="media-tile media-tile-data">
+<div class="media-tile text-center" data-trailer-youtube-id="{media_preview}" data-toggle="modal" data-target="#trailer">
+    <img src="{media_image}" width="220" height="342">
+    <div class="media-info">
         <h2>{media_title}</h2>
+        <p>{media_description}</p>
     </div>
 </div>
 '''
@@ -152,8 +163,9 @@ def create_media_tiles_content(medias):
         # Append the tile for the media with its content filled in
         content += media_tile_content.format(
             media_title = media.title,
-            poster_image_url = media.poster_image_url,
-            trailer_youtube_id=preview
+            media_description = media.description,
+            media_image = media.image,
+            media_preview = media.preview
         )
     return content
 

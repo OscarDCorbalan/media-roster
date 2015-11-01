@@ -38,10 +38,17 @@ main_page_head = '''
         .media-tile {
             margin-bottom: 20px;
             padding-top: 20px;
+            position: relative;
+            overflow: hidden;
         }
         .media-tile:hover {
             background-color: #EEE;
             cursor: pointer;
+        }
+        .media-tile-data{
+            position: absolute;
+            bottom: 0px;
+            animation-duration:
         }
         .scale-media {
             padding-bottom: 56.25%;
@@ -85,7 +92,6 @@ main_page_head = '''
 </head>
 '''
 
-
 # The main page layout and title bar
 main_page_content = '''
   <body>
@@ -104,15 +110,17 @@ main_page_content = '''
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">My media collection</a>
+            <a class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container-fluid">
-      {media_tiles}
+        <div id="carousel">
+            {media_tiles}
+        </div>
     </div>
   </body>
 </html>
@@ -122,8 +130,12 @@ main_page_content = '''
 # A single media entry html template
 media_tile_content = '''
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 media-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{media_title}</h2>
+    <div class="media-tile-front">
+        <img src="{poster_image_url}" width="220" height="342">
+    </div>
+    <div class="media-tile media-tile-data">
+        <h2>{media_title}</h2>
+    </div>
 </div>
 '''
 

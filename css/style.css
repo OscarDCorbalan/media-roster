@@ -1,0 +1,77 @@
+body {
+  padding-top: 80px;
+}
+.text-align-center{text-align:center}
+#navbar{
+  background: #E44424;
+}
+.navbar-brand{
+    color: #91C3DC;
+}
+#navbar-title{
+    color: #FFF;
+}
+#trailer .modal-dialog {
+    margin-top: 100px;
+    width: 70%;
+}
+.hanging-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    z-index: 9001;
+}
+#trailer-video {
+    width: 100%;
+    height: 100%;
+}
+.media-tile {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: inline-block;
+    position: relative;
+    width: 430px;
+    height: 390px;
+}
+.media-info{
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    background-color: #7D1935;
+    height: 100%;
+    width: 100%;
+    color: #FFF;
+    opacity: 0;
+    transition: ease-in-out 150ms opacity;
+}
+.media-tile:hover>.media-info{
+    opacity: 0.95;
+    transition: ease-in-out 400ms opacity;
+}
+.media-rating {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width:50px;
+    padding: 15px 0;
+    text-align: center;
+    background: #4A96AD;
+    vertical-align: middle;
+    border-radius: 25px;
+    box-shadow: 0px 1px 1px black;
+}
+.scale-media {
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.scale-media iframe {
+    border: none;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+}

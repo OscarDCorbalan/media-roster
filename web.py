@@ -16,74 +16,7 @@ main_page_head = '''
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <style type="text/css" media="screen">
-        body {
-            padding-top: 80px;
-        }
-        .text-align-center{text-align:center}
-        #navbar{
-            background: #E44424;
-        }
-        .navbar-brand{
-            color: #91C3DC;
-        }
-        #navbar-title{
-            color: #FFF;
-        }
-        #trailer .modal-dialog {
-            margin-top: 200px;
-            width: 640px;
-            height: 480px;
-        }
-        .hanging-close {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            z-index: 9001;
-        }
-        #trailer-video {
-            width: 100%;
-            height: 100%;
-        }
-        .media-tile {
-            padding-bottom: 20px;
-            padding-top: 20px;
-            display: inline-block;
-            position: relative;
-            width: 430px;
-            height: 390px;
-        }
-        .media-info{
-            text-align: left;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding-left: 20px;
-            background-color: #67BCDB;
-            height: 100%;
-            width: 100%;
-            color: #FFF;
-            opacity: 0;
-            transition: ease-in-out 150ms opacity;
-        }
-        .media-tile:hover>.media-info{
-            opacity: 0.95;
-            transition: ease-in-out 400ms opacity;
-        }
-        .scale-media {
-            padding-bottom: 56.25%;
-            position: relative;
-        }
-        .scale-media iframe {
-            border: none;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            background-color: white;
-        }
-    </style>
+    <style media="screen" href="css/style.css"></style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
@@ -92,7 +25,7 @@ main_page_head = '''
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.media-tile', function (event) {
+        $(document).on('click', '.media-trailer', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
@@ -141,15 +74,16 @@ main_page_content = '''
 
 # A single media entry html template
 media_tile_content = '''
-<div class="media-tile text-center" data-trailer-youtube-id="{media_preview}" data-toggle="modal" data-target="#trailer">
+<div class="media-tile text-center">
     <img src="{media_image}" width="220" height="342">
     <div class="media-info">
+        <span class="media-rating">{media_rating}</span>
         <h2>{media_title}</h2>
         <p>{media_description}</p>
+        <a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Trailer</a>
     </div>
 </div>
 '''
-
 
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page
@@ -165,10 +99,10 @@ def create_media_tiles_content(medias):
             media_title = media.title,
             media_description = media.description,
             media_image = media.image,
-            media_preview = media.preview
+            media_rating = media.rating,
+            media_preview = preview
         )
     return content
-
 
 def open_media_page(media):
     # Create or overwrite the output file

@@ -104,6 +104,7 @@ def create_media_tiles_content(medias):
     content = ''
     for media in medias:
         extension = ''
+        # Generate class-specific info
         if isinstance(media, Video):
             youtubeId = getYoutubeId(media.preview)
             extension += media_extended_movie.format(media_preview = youtubeId)

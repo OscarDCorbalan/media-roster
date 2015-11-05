@@ -1,7 +1,11 @@
+@media (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+}
 body {
   padding-top: 80px;
 }
-.text-align-center{text-align:center}
 #navbar{
   background: #E44424;
 }
@@ -26,41 +30,79 @@ body {
     height: 100%;
 }
 .media-tile {
-    padding-bottom: 20px;
-    padding-top: 20px;
-    display: inline-block;
+}
+.media-wrapper{
+    background: #C1E1A6;
+    margin: 15px 0;
+    overflow: hidden;
     position: relative;
-    width: 430px;
-    height: 390px;
+}
+.media-info-extended{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #77CCEB;
+    opacity: 0;
+    padding: 0 15px;
+    height:100%;
+    transition: ease-in-out 150ms opacity;
+    width: 100%;
+}
+.media-info-extended:hover{
+    opacity: 1;
+    transition-duration: 250ms;
+}
+.media-image{
+    float:left;
+    width:50%;
+    height:100%;
 }
 .media-info{
+    float:right;
+    width:50%;
+    height:100%;
     text-align: left;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-left: 20px;
-    background-color: #7D1935;
-    height: 100%;
-    width: 100%;
-    color: #FFF;
-    opacity: 0;
+    padding: 10px;
+    color: #000;
     transition: ease-in-out 150ms opacity;
 }
-.media-tile:hover>.media-info{
-    opacity: 0.95;
-    transition: ease-in-out 400ms opacity;
+.media-info>h2{
+    margin-top: 0;
 }
-.media-rating {
+/* triangle base code gotten from http://jsfiddle.net/josedvq/3HG6d/ and adapted from there */
+.media-rating{
+    z-index: 2;
     position: absolute;
-    right: 10px;
-    top: 10px;
-    width:50px;
-    padding: 15px 0;
-    text-align: center;
-    background: #4A96AD;
-    vertical-align: middle;
-    border-radius: 25px;
-    box-shadow: 0px 1px 1px black;
+    bottom: 0;
+    right: 0;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    width: 70px;
+}
+.media-rating-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 90px;
+    padding-top: 26px;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 1;
+}
+.media-rating-background:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top:-90px;
+    border-top: 90px solid transparent;
+    border-right: 90px solid #FF9009;
+    transition: ease-in-out 250ms opacity;
+}
+.media-wrapper:hover .media-rating-background{
+    opacity: 0;
+    transition-duration: 150ms;
 }
 .scale-media {
     padding-bottom: 56.25%;

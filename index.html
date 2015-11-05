@@ -8,87 +8,9 @@
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <style type="text/css" media="screen">
-        body {
-            padding-top: 80px;
-        }
-        .text-align-center{text-align:center}
-        #navbar{
-            background: #E44424;
-        }
-        .navbar-brand{
-            color: #91C3DC;
-        }
-        #navbar-title{
-            color: #FFF;
-        }
-        #trailer .modal-dialog {
-            margin-top: 100px;
-            width: 70%;
-        }
-        .hanging-close {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            z-index: 9001;
-        }
-        #trailer-video {
-            width: 100%;
-            height: 100%;
-        }
-        .media-tile {
-            padding-bottom: 20px;
-            padding-top: 20px;
-            display: inline-block;
-            position: relative;
-            width: 430px;
-            height: 390px;
-        }
-        .media-info{
-            text-align: left;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding-left: 20px;
-            background-color: #7D1935;
-            height: 100%;
-            width: 100%;
-            color: #FFF;
-            opacity: 0;
-            transition: ease-in-out 150ms opacity;
-        }
-        .media-tile:hover>.media-info{
-            opacity: 0.95;
-            transition: ease-in-out 400ms opacity;
-        }
-        .media-rating {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            width:50px;
-            padding: 15px 0;
-            text-align: center;
-            background: #4A96AD;
-            vertical-align: middle;
-            border-radius: 25px;
-            box-shadow: 0px 1px 1px black;
-        }
-        .scale-media {
-            padding-bottom: 56.25%;
-            position: relative;
-        }
-        .scale-media iframe {
-            border: none;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            background-color: white;
-        }
-    </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
@@ -133,75 +55,124 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid text-align-center">
+    <div class="container-fluid">
       
-<div class="media-tile text-center">
-    <img src="img/The_Martian.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG-13</span>
-        <h2>The Martian</h2>
-        <p>During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=ej3ioOneTy8 data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/The_Martian.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">PG-13</span>
+            </div>
+            <p>During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>The Martian</h3>
+            <p>Movie - Sci Fi</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Battlestar_Galactica.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Battlestar Galactica</h2>
-        <p>In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=TnYsf2Yv8i8 data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Battlestar_Galactica.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">PG-13</span>
+            </div>
+            <p>In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Battlestar Galactica</h3>
+            <p>Movie - Fantasy, Action</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Torrente.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Torrente</h2>
-        <p>Torrente is a drunkard, sexist, racist, right-wing Madrid cop who only cares about himself. He discovers that a band of drug traffickers are operating in a nearby chinese restaurant, what could make him regain the status he lost within the police.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=ZC9XPvePksc data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Torrente.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">NC-17</span>
+            </div>
+            <p>Torrente is a drunkard, sexist, racist, right-wing Madrid cop who only cares about himself. He discovers that a band of drug traffickers are operating in a nearby chinese restaurant, what could make him regain the status he lost within the police.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Torrente</h3>
+            <p>Movie - Comedy</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Star_Trek_Voyager.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Star Trek: Voyager</h2>
-        <p>The Federation starship USS Voyager, chasing a band of Maquis rebels, enters the dangerous space nebula known as the Badlands. Both ships are transported by a distant space probe to the Delta Quadrant, 75,000 light-years from Federation space.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=b1PX9E2RsgU data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Star_Trek_Voyager.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">PG</span>
+            </div>
+            <p>The Federation starship USS Voyager, chasing a band of Maquis rebels, enters the dangerous space nebula known as the Badlands. Both ships are transported by a distant space probe 75,000 light-years from home.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Star Trek: Voyager</h3>
+            <p>TV Show - Sci Fi</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Interstellar.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Interstellar 2014</h2>
-        <p>A group of explorers must travel beyond our solar system in search of a planet that can sustain life.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=zSWdZVtXT7E data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Interstellar.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">PG-13</span>
+            </div>
+            <p>A group of explorers must travel beyond our solar system in search of a planet that can sustain life.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Interstellar 2014</h3>
+            <p>Movie - Sci Fi, Adventure</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Star_Trek_IX.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Star Trek IX</h2>
-        <p>The young crew onboard for the maiden voyage of the most advanced starship ever created, the U.S.S. Enterprise, must find a way to stop the evil Nero, whose mission of vengeance threatens all of mankind.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=pKFUZ10Wmbw data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Star_Trek_IX.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">PG-13</span>
+            </div>
+            <p>The young crew onboard for the maiden voyage of the most advanced starship ever created, the U.S.S. Enterprise, must find a way to stop the evil Nero, whose mission of vengeance threatens all of mankind.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Star Trek IX</h3>
+            <p>Movie - Sci Fi</p>
+            
+        </div>
     </div>
 </div>
 
-<div class="media-tile text-center">
-    <img src="img/Braveheart.jpg" width="220" height="342">
-    <div class="media-info">
-        <span class="media-rating">PG</span>
-        <h2>Braveheart</h2>
-        <p>Edward the Longshanks, King of England (Patrick McGoohan), has captured Scotlands throne and threatens the freedom of all Scottish people, as tyrannical policies instituted by the English plague the Scots.</p>
-        <a class="media-trailer" href=# data-trailer-youtube-id=vBXBtORI7pE data-toggle="modal" data-target="#trailer">Trailer</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+    <div class="media-wrapper">
+        <img class="media-image" src="img/Braveheart.jpg">
+        <div class="media-info">
+            <div class="media-rating-background">
+                <span class="media-rating text-center">NC-17</span>
+            </div>
+            <p>Edward the Longshanks, King of England (Patrick McGoohan), has captured Scotlands throne and threatens the freedom of all Scottish people, as tyrannical policies instituted by the English plague the Scots.</p>
+        </div>
+        <div class="media-info-extended">
+            <h3>Braveheart</h3>
+            <p>Movie - Action, History</p>
+            
+        </div>
     </div>
 </div>
 

@@ -29,11 +29,11 @@ class Movie(Video):
 
 class TvShow(Video):
     """This class stores information related to TV shows"""
-    def __init__(self, show_title, show_description, show_genre, show_poster, show_trailer, show_rating, show_duration, show_seasons, show_episodes, show_tv_station):
+    def __init__(self, show_title, show_description, show_genre, show_poster, show_trailer, show_rating, show_duration, show_seasons, show_episodes, show_channel):
         Video.__init__(self, show_title, show_description, show_genre, show_poster, show_trailer, show_rating, show_duration )
         self.seasons = show_seasons
         self.episodes = show_episodes
-        self.tv_station = show_tv_station
+        self.channel = show_channel
         self.type = "TV Show"
 
 class Book(Media):

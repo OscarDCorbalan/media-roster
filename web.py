@@ -1,7 +1,7 @@
 import webbrowser
 import os
 import re
-from media import Video, Movie
+from media import Video, Movie, TvShow
 
 # Styles and scripting for the page
 main_page_head = '''
@@ -92,19 +92,29 @@ media_tile_content = '''
 </div>
 '''
 
-media_tile_content_movie = '''
-    <a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Trailer</a>
+media_extended_movie = '''
+    <p><a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Trailer</a></p>
 '''
-
+media_extended_tvshow = '''
+    <p>Original channel: <strong>{show_channel}</p>
+    <p>{media_title} consists of {show_seasons} seasons and {show_episodes} episodes, with an average duration of {show_duration} min. </p>
+'''
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page
     content = ''
     for media in medias:
+        extension = ''
         if isinstance(media, Video):
             youtubeId = getYoutubeId(media.preview)
-            extension = media_tile_content_movie.format(media_preview = youtubeId)
-        else:
-            extension = ''
+            extension += media_extended_movie.format(media_preview = youtubeId)
+
+        if isinstance(media, TvShow):
+            extension += media_extended_tvshow.format(
+                media_title = media.title,
+                show_channel = media.channel,
+                show_seasons = media.seasons,
+                show_episodes = media.episodes,
+                show_duration = media.duration)
 
         # Append the tile for the media with its content filled in
         content += media_tile_content.format(
@@ -115,8 +125,7 @@ def create_media_tiles_content(medias):
             media_rating = media.rating,
             media_preview = media.preview,
             media_genre = media.genre,
-            media_tile_extended = extension
-        )
+            media_tile_extended = extension)
     return content
 
 def getYoutubeId(youtubeURL):

@@ -96,7 +96,7 @@ media_extended_movie = '''
     <p><a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Trailer</a></p>
 '''
 media_extended_tvshow = '''
-    <p>Original channel: <strong>{show_channel}</p>
+    <p>Original channel: {show_channel}</p>
     <p>{media_title} consists of {show_seasons} seasons and {show_episodes} episodes, with an average duration of {show_duration} min. </p>
 '''
 def create_media_tiles_content(medias):

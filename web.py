@@ -1,7 +1,7 @@
 import webbrowser
 import os
 import re
-from media import Video
+from media import Video, Movie
 
 # Styles and scripting for the page
 main_page_head = '''
@@ -100,9 +100,9 @@ def create_media_tiles_content(medias):
     # The HTML content for this section of the page
     content = ''
     for media in medias:
-        if type(media) is Video:
-            youtubeId = getYoutubeID(media.preview)
-            extension = media_tile_content_movie.fomrat(youtubeId)
+        if isinstance(media, Video):
+            youtubeId = getYoutubeId(media.preview)
+            extension = media_tile_content_movie.format(media_preview = youtubeId)
         else:
             extension = ''
 
@@ -121,8 +121,8 @@ def create_media_tiles_content(medias):
 
 def getYoutubeId(youtubeURL):
     # Extract the youtube ID from the url
-    youtube_id_match = re.search(r'(?<=v=)[^&#]+', media.preview)
-    youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', media.preview)
+    youtube_id_match = re.search(r'(?<=v=)[^&#]+', youtubeURL)
+    youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', youtubeURL)
     preview = (youtube_id_match.group(0) if youtube_id_match else None)
     return preview
 

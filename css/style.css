@@ -4,7 +4,11 @@
     }
 }
 body {
-  padding-top: 80px;
+    padding-top: 80px;
+    background-color: #E0E0E0;
+}
+a{
+    color:#0074D9;
 }
 #navbar{
   background: #E44424;
@@ -29,47 +33,51 @@ body {
     width: 100%;
     height: 100%;
 }
-.media-tile {
-}
 .media-wrapper{
-    background: #C1E1A6;
+    border-bottom: 3px solid #39CCCC;
+    background-color: #FFF;
     margin: 15px 0;
-    overflow: hidden;
     position: relative;
+    max-width: 450px;
+    height: 123px;
 }
 .media-info-extended{
     position: absolute;
     left: 0;
-    top: 0;
-    background-color: #77CCEB;
+    top: 123px;
+    background-color: #39CCCC;
+    color: #FFF;
     opacity: 0;
-    padding: 0 15px;
-    height:100%;
+    visibility: hidden;
+    padding: 15px;
     transition: ease-in-out 150ms opacity;
     width: 100%;
+    z-index: 2;
 }
-.media-info-extended:hover{
+.media-wrapper:hover .media-info-extended{
+    visibility: visible;
     opacity: 1;
     transition-duration: 250ms;
 }
+.media-info-extended p:last-of-type{
+    margin-bottom:0;
+}
 .media-image{
     float:left;
-    width:50%;
-    height:100%;
+    width: 85px;
+    height: 120px;
 }
 .media-info{
-    float:right;
-    width:50%;
-    height:100%;
     text-align: left;
     padding: 10px;
     color: #000;
     transition: ease-in-out 150ms opacity;
+    margin-left: 85px;
 }
-.media-info>h2{
+.media-info>h3{
     margin-top: 0;
 }
-/* triangle base code gotten from http://jsfiddle.net/josedvq/3HG6d/ and adapted from there */
+/* triangle base code gotten from http://jsfiddle.net/josedvq/3HG6d/ and adapted from there for the tag background */
 .media-rating{
     z-index: 2;
     position: absolute;
@@ -84,7 +92,7 @@ body {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 90px;
+    width: 85px;
     padding-top: 26px;
     overflow: hidden;
     z-index: 1;
@@ -97,12 +105,8 @@ body {
     height: 0;
     margin-top:-90px;
     border-top: 90px solid transparent;
-    border-right: 90px solid #FF9009;
+    border-right: 90px solid #39CCCC;
     transition: ease-in-out 250ms opacity;
-}
-.media-wrapper:hover .media-rating-background{
-    opacity: 0;
-    transition-duration: 150ms;
 }
 .scale-media {
     padding-bottom: 56.25%;

@@ -16,7 +16,6 @@ main_page_head = '''
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
@@ -57,15 +56,15 @@ main_page_content = '''
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
             <a id="navbar-title" class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      {media_tiles}
+    <div class="container">
+        {media_tiles}
     </div>
   </body>
 </html>
@@ -74,30 +73,33 @@ main_page_content = '''
 
 # A single media entry html template
 media_tile_content = '''
-<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
+<article class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
     <div class="media-wrapper">
         <img class="media-image" src="{media_image}">
         <div class="media-info">
+            <h3>{media_title}</h3>
+            <p><strong>Type</strong>: {media_type}<br/>
+            <strong>Genre</strong>: {media_genre}</p>
             <div class="media-rating-background">
                 <span class="media-rating text-center">{media_rating}</span>
             </div>
-            <p>{media_description}</p>
         </div>
         <div class="media-info-extended">
-            <h3>{media_title}</h3>
-            <p>{media_type} - {media_genre}</p>
+            <p>{media_description}</p>
             {media_tile_extended}
         </div>
     </div>
-</div>
+</article>
 '''
 
 media_extended_movie = '''
-    <p><a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Trailer</a></p>
+    <p><a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Watch trailer</a></p>
 '''
 media_extended_tvshow = '''
-    <p>Original channel: {show_channel}</p>
-    <p>{media_title} consists of {show_seasons} seasons and {show_episodes} episodes, with an average duration of {show_duration} min. </p>
+    <p><strong>Channel</strong>: {show_channel}.<br/>
+    <strong>Seasons</strong>: {show_seasons}.<br/>
+    <strong>Episodes</strong>: {show_episodes}.<br/>
+    <strong>Avg. duration</strong>: {show_duration} minutes.</p>
 '''
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page

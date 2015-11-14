@@ -15,17 +15,17 @@ The script will build an index.html file and automatically open it in your brows
 
 Within the download you'll find the following directories and files, logically grouping common assets. You'll see something like this
 
-├── css/
-│   └── style.css
-├── js/
-│   └── interactions.js
-├── img/
-│   ├── media/
-│   │   └── \*.jpg       
-│   ├── cross.png
-│   └── favicon.png
-├── index.html
-├── build.py
-├── data.py
-├── media.py
-└── web.py
+├── css/  
+│   └── style.css  
+├── js/  
+│   └── interactions.js  
+├── img/  
+│   ├── media/  
+│   │   └── \*.jpg  
+│   ├── cross.png  
+│   └── favicon.png  
+├── index.html  
+├── build.py  
+├── data.py  
+├── media.py  
+└── web.py  

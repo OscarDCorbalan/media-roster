@@ -17,6 +17,8 @@ main_page_head = '''
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="js/interactions.js" async></script>
+    <!--[if IE]><link rel="shortcut icon" href="img/favicon.png"><![endif]-->
+    <link rel=icon href="img/favicon.png" sizes="16x16" type="image/png">
 </head>
 '''
 

@@ -99,7 +99,6 @@ def create_media_tiles_content(medias):
         extension = ''
         # Generate class-specific info
         if isinstance(media, Movie):
-            youtubeId = getYoutubeId(media.preview)
             extension += media_extended_movie.format(
                 movie_release = media.release_date,
                 movie_duration = media.duration)
@@ -112,7 +111,7 @@ def create_media_tiles_content(medias):
                 show_episodes = media.episodes,
                 show_duration = media.duration)
 
-        # Append the tile for the media with its content filled in
+        # Generate common info; append the tile for the media with its content filled in
         content += media_tile_content.format(
             media_title = media.title,
             media_type = media.type,

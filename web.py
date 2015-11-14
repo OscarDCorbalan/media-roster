@@ -73,7 +73,7 @@ media_tile_content = '''
             </div>
         </div>
         <div class="media-info-extended display-none">
-            <img class="media-image" src="{media_image}">        
+            <img class="media-image" src="{media_image}">
             <p>{media_description}</p>
             {media_tile_extended}
         </div>
@@ -82,6 +82,7 @@ media_tile_content = '''
 '''
 
 media_extended_movie = '''
+    <p><strong>Duration</strong>: {movie_duration} minutes.</p>
 
 '''
 media_extended_tvshow = '''
@@ -98,7 +99,7 @@ def create_media_tiles_content(medias):
         # Generate class-specific info
         if isinstance(media, Video):
             youtubeId = getYoutubeId(media.preview)
-            extension += media_extended_movie.format(media_preview = youtubeId)
+            extension += media_extended_movie.format(movie_duration = media.duration)
 
         if isinstance(media, TvShow):
             extension += media_extended_tvshow.format(

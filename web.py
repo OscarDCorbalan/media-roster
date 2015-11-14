@@ -123,7 +123,7 @@ def create_media_tiles_content(medias):
             media_image = media.image,
             media_rating = media.rating,
             media_preview = media.preview,
-            media_genre = media.genre,
+            media_genre = ", ".join(media.genre),
             media_tile_extended = extension)
     return content
 

@@ -1,24 +1,25 @@
 import webbrowser
 
 class Media():
-    _VALID_RATINGS = ["G", "PG", "PG-13", "R", "NC-17"]
-    def __init__(self, title, description, genre, image, rating):
+    def __init__(self, title, description, genre, image):
         self.title = title
         self.description  = description
         self.genre = genre
         self.image = image
-        if rating in self._VALID_RATINGS:
-            self.rating = rating
-        else:
-            self.rating = "N/A"
 
 class Video(Media):
     """This class stores information related to audiovisual media (movies, tv shows...)"""
+    _VALID_RATINGS = ["G", "PG", "PG-13", "R", "NC-17"]
+
     def __init__(self, video_title, video_description, video_genre, video_image, video_preview, video_rating, video_duration=None):
-        Media.__init__(self, video_title, video_description, video_genre, video_image, video_rating)
+        Media.__init__(self, video_title, video_description, video_genre, video_image)
         # Duration is a property of audiovisual media
         self.duration = video_duration
         self.preview = video_preview
+        if video_rating in self._VALID_RATINGS:
+            self.rating = video_rating
+        else:
+            self.rating = "N/A"
 
 class Movie(Video):
     """This class stores information related to movies"""
@@ -41,4 +42,4 @@ class TvShow(Video):
 class Book(Media):
     """This class stores information related to Books"""
     def __init__(self, book_title, book_description, book_genre, book_cover):
-        Media.__init(self, book_title, book_description, book_genre, book_cover)
+        Media.__init__(self, book_title, book_description, book_genre, book_cover)

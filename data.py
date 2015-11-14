@@ -1,9 +1,9 @@
 import media
 
-#TODO use a free MongoDB instance :)
+# Possible upgrade: use some free database to store all this info, and put here the code to retrieve it from the database
 
 def getMedia():
-    # Create some movies
+    # Create some movies. See class definition for the parameters.
     the_martian = media.Movie(
         "The Martian",
         "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet.",
@@ -15,28 +15,6 @@ def getMedia():
         "27 September 2015",
         "Ridley Scott",
         ["Matt Damon", "Jessica Chastain", "Kristen Wiig", "Jeff Daniels", "Michael Pena", "Kate Mara", "Sean Bean", "Sebastian Stan", "Aksel Hennie", "Chiwetel Ejiofor"])
-    galactica = media.TvShow(
-        "Battlestar Galactica",
-        "In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.",
-        ["Fantasy, Action"],
-        "img/Battlestar_Galactica.jpg",
-        "https://www.youtube.com/watch?v=TnYsf2Yv8i8",
-        "PG-13",
-        44,
-        4,
-        75,
-        "Syfy")
-    star_trek_voy = media.TvShow(
-        "Star Trek: Voyager",
-        "The Federation starship USS Voyager, chasing a band of Maquis rebels, enters the dangerous space nebula known as the Badlands. Both ships are transported by a distant space probe 75,000 light-years from home.",
-        ["Sci Fi"],
-        "img/Star_Trek_Voyager.jpg",
-        "https://www.youtube.com/watch?v=b1PX9E2RsgU",
-        "PG",
-        44,
-        7,
-        172,
-        "UPN")
     torrente = media.Movie(
         "Torrente",
         "Torrente is a drunkard, sexist, racist, right-wing Madrid cop who only cares about himself. He discovers that a band of drug traffickers are operating in a nearby chinese restaurant, what could make him regain the status he lost within the police.",
@@ -81,6 +59,54 @@ def getMedia():
         "18 May 1995",
         "Mel Gibson",
         ["Mel Gibson", "Sophie Marceau", "Patrick McGoohan", "Catherine McCormack", "Angus Macfadyen"])
+    troy = media.Movie(
+        "Troy",
+        "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
+        ["Adventure"],
+        "img/Troy.jpg",
+        "https://www.youtube.com/watch?v=aiyQOumuSN4",
+        "PG-13",
+        163,
+        "14 May 2004",
+        "Wolfgang Petersen",
+        ["Brad Pitt", "Eric Bana", "Orlando Bloom", "Diane Kruger", "Brian Cox", "Sean Bean", "Brendan Gleeson", "Peter O'Toole"])
+    troy = media.Movie(
+        "Kingdom of Heaven",
+        "Balian of Ibelin travels to Jerusalem during the crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
+        ["Action", "Adventure", "Drama"],
+        "img/Kingdom_of_Heaven.jpg",
+        "https://www.youtube.com/watch?v=-oO6pCRe3pM",
+        "PG-13",
+        144,
+        "6 May 2005",
+        "Ridley Scott",
+        ["Orlando Bloom", "Ghassan Massoud", "Eva Green", "Jeremy Irons", "David Thewlis", "Brendan Gleeson", "Marton Csokas", "Liam Neeson", "Edward Norton"])
+
+    # Create some TV Shows. See class definition for the parameters.
+    galactica = media.TvShow(
+        "Battlestar Galactica",
+        "In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.",
+        ["Fantasy, Action"],
+        "img/Battlestar_Galactica.jpg",
+        "https://www.youtube.com/watch?v=TnYsf2Yv8i8",
+        "PG-13",
+        44,
+        4,
+        75,
+        "Syfy")
+    star_trek_voy = media.TvShow(
+        "Star Trek: Voyager",
+        "The Federation starship USS Voyager, chasing a band of Maquis rebels, enters the dangerous space nebula known as the Badlands. Both ships are transported by a distant space probe 75,000 light-years from home.",
+        ["Sci Fi"],
+        "img/Star_Trek_Voyager.jpg",
+        "https://www.youtube.com/watch?v=b1PX9E2RsgU",
+        "PG",
+        44,
+        7,
+        172,
+        "UPN")
+
+    # Create some Books. See class definition for the parameters.
     worldwar1 = media.Book(
         "Worldwar: In the Balance",
         "First novel of the Worldwar tetralogy. The plot begins in late 1941, while the Earth is torn apart by World War II. An alien fleet arrive to conquer the planet, forcing the warring nations to make uneasy alliances against the invaders.",
@@ -161,29 +187,6 @@ def getMedia():
         2004,
         608,
         "0-345-45846-X")
-    troy = media.Movie(
-        "Troy",
-        "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
-        ["Adventure"],
-        "img/Troy.jpg",
-        "https://www.youtube.com/watch?v=aiyQOumuSN4",
-        "PG-13",
-        163,
-        "14 May 2004",
-        "Wolfgang Petersen",
-        ["Brad Pitt", "Eric Bana", "Orlando Bloom", "Diane Kruger", "Brian Cox", "Sean Bean", "Brendan Gleeson", "Peter O'Toole"])
-    troy = media.Movie(
-        "Kingdom of Heaven",
-        "Balian of Ibelin travels to Jerusalem during the crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
-        ["Action", "Adventure", "Drama"],
-        "img/Kingdom_of_Heaven.jpg",
-        "https://www.youtube.com/watch?v=-oO6pCRe3pM",
-        "PG-13",
-        144,
-        "6 May 2005",
-        "Ridley Scott",
-        ["Orlando Bloom", "Ghassan Massoud", "Eva Green", "Jeremy Irons", "David Thewlis", "Brendan Gleeson", "Marton Csokas", "Liam Neeson", "Edward Norton"])
 
-
-
+    # Return a list with the elements in the order we want them to be shown in the web page
     return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3, troy]

@@ -13,7 +13,8 @@ def getMedia():
         "PG-13",
         144,
         "27 September 2015",
-        "Ridley Scott")
+        "Ridley Scott",
+        ["Matt Damon", "Jessica Chastain", "Kristen Wiig", "Jeff Daniels", "Michael Pena", "Kate Mara", "Sean Bean", "Sebastian Stan", "Aksel Hennie", "Chiwetel Ejiofor"])
     galactica = media.TvShow(
         "Battlestar Galactica",
         "In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.",
@@ -45,7 +46,8 @@ def getMedia():
         "NC-17",
         97,
         "13 March 1998",
-        "Santiago Segura")
+        "Santiago Segura",
+        ["Santiago Segura", "Javier Bardem", "Javier Camara", "Tony Leblanc", "Neus Asensi"])
     interstellar = media.Movie(
         "Interstellar 2014",
         "A group of explorers must travel beyond our solar system in search of a planet that can sustain life.",
@@ -55,7 +57,8 @@ def getMedia():
         "PG-13",
         169,
         "26 October 2014",
-        "Christopher Nolan")
+        "Christopher Nolan",
+        ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain", "Bill Irwin", "Ellen Burstyn", "Michael Caine"])
     star_trek_ix = media.Movie(
         "Star Trek IX",
         "The young crew onboard for the maiden voyage of the most advanced starship ever created, the U.S.S. Enterprise, must find a way to stop the evil Nero, whose mission of vengeance threatens all of mankind.",
@@ -65,7 +68,8 @@ def getMedia():
         "PG-13",
         127,
         "6 April 2009",
-        "Jonathan Frakes")
+        "Jonathan Frakes",
+        ["Patrick Stewart", "Jonathan Frakes", "Brent Spiner", "LeVar Burton", "Michael Dorn", "Gates McFadden", "Marina Sirtis", "F. Murray Abraham", "Donna Murphy","Anthony Zerbe"])
     breaveheart = media.Movie(
         "Braveheart",
         "Edward the Longshanks, King of England (Patrick McGoohan), has captured Scotlands throne and threatens the freedom of all Scottish people, as tyrannical policies instituted by the English plague the Scots.",
@@ -75,6 +79,7 @@ def getMedia():
         "NC-17",
         178,
         "18 May 1995",
-        "Mel Gibson")
+        "Mel Gibson",
+        ["Mel Gibson", "Sophie Marceau", "Patrick McGoohan", "Catherine McCormack", "Angus Macfadyen"])
 
     return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart]

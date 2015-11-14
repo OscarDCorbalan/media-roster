@@ -22,11 +22,12 @@ class Video(Media):
 
 class Movie(Video):
     """This class stores information related to movies"""
-    def __init__(self, movie_title, movie_storyline, movie_genre, movie_poster, movie_trailer, movie_rating, movie_duration, movie_release_date, movie_director):
+    def __init__(self, movie_title, movie_storyline, movie_genre, movie_poster, movie_trailer, movie_rating, movie_duration, movie_release_date, movie_director, movie_cast):
         Video.__init__(self, movie_title, movie_storyline, movie_genre, movie_poster, movie_trailer, movie_rating, movie_duration)
         self.type = "Movie"
         self.release_date = movie_release_date
         self.director = movie_director
+        self.cast = movie_cast
 
 class TvShow(Video):
     """This class stores information related to TV shows"""

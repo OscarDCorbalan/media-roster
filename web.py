@@ -83,6 +83,8 @@ media_tile_content = '''
 
 media_extended_movie = '''
     <p><strong>Release</strong>: {movie_release}.<br/>
+    <strong>Director</strong>: {movie_director}.<br/>
+    <strong>Cast</strong>: {movie_cast}.<br/>
     <strong>Duration</strong>: {movie_duration} minutes.</p>
 
 '''
@@ -101,7 +103,9 @@ def create_media_tiles_content(medias):
         if isinstance(media, Movie):
             extension += media_extended_movie.format(
                 movie_release = media.release_date,
-                movie_duration = media.duration)
+                movie_duration = media.duration,
+                movie_director = media.director,
+                movie_cast = ", ".join(media.cast)) # movie.cast is a list, so join it separating with commas
 
         if isinstance(media, TvShow):
             extension += media_extended_tvshow.format(

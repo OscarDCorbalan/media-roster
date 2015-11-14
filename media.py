@@ -93,7 +93,7 @@ class TvShow(Video):
         self.type = "TV Show"
 
 class Book(Media):
-    """This class inerhits from Book and represents a book.
+    """This class inerhits from Media and represents a book.
 
     Attributes:
         book_title: (String) book title.
@@ -106,7 +106,7 @@ class Book(Media):
         book_pages: (Number) number of pages of the original edition
         book_isbn: (String) ISBN of the book.
     """
-    
+
     def __init__(self, book_title, book_description, book_genre, book_cover, book_author, book_editor, book_year, book_pages, book_isbn):
         """Inits a Book instance with the parameters passed. """
         Media.__init__(self, book_title, book_description, book_genre, book_cover)

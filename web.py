@@ -13,60 +13,42 @@ main_page_head = '''
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        // Pause the video when the modal is closed
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
-            // reliable way to ensure the video stops playing in IE
-            $("#trailer-video-container").empty();
-        });
-        // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.media-trailer', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
-              'id': 'trailer-video',
-              'type': 'text-html',
-              'src': sourceUrl,
-              'frameborder': 0
-            }));
-        });
-    </script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="js/interactions.js" async></script>
 </head>
 '''
 
 # The main page layout and title bar
 main_page_content = '''
-  <body>
-    <div class="modal" id="trailer">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="img/cross.png"/>
-          </a>
-          <div class="scale-media" id="trailer-video-container">
-          </div>
+    <body>
+        <div class="modal" id="lightsoff">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+                        <img src="img/cross.png"/>
+                    </a>
+                    <div class="scale-media display-none" id="trailer-video-container"></div>
+                    <div class="scale-media display-none" id="media-extended-container"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Main Page Content -->
         <div class="container">
-          <div class="navbar-header">
-            <a id="navbar-title" class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
-          </div>
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a id="navbar-title" class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="container">
-        {media_tiles}
-    </div>
-  </body>
+        <div class="container">
+            {media_tiles}
+        </div>
+    </body>
 </html>
 '''
 
@@ -80,6 +62,8 @@ media_tile_content = '''
             <h3>{media_title}</h3>
             <p><strong>Type</strong>: {media_type}<br/>
             <strong>Genre</strong>: {media_genre}</p>
+            <span class="glyphicon glyphicon-plus-sign pointer" aria-hidden="true" data-target="#lightsoff" data-toggle="modal"></span>
+            <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
             <div class="media-rating-background">
                 <span class="media-rating text-center">{media_rating}</span>
             </div>
@@ -93,7 +77,7 @@ media_tile_content = '''
 '''
 
 media_extended_movie = '''
-    <p><a class="media-trailer" href=# data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#trailer">Watch trailer</a></p>
+    
 '''
 media_extended_tvshow = '''
     <p><strong>Channel</strong>: {show_channel}.<br/>

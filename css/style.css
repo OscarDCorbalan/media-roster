@@ -3,6 +3,12 @@
         width: 1170px;
     }
 }
+.display-none{
+    display: none;
+}
+.pointer{
+    cursor: pointer;
+}
 body {
     padding-top: 80px;
     background-color: #E0E0E0;
@@ -41,24 +47,40 @@ a{
     max-width: 450px;
     height: 123px;
 }
+.media-wrapper:hover{
+    border-top: 3px solid #39CCCC;
+    border-right: 3px solid #39CCCC;
+    border-left: 3px solid #39CCCC;
+    margin:12px -3px 15px;
+    height: 126px;
+}
+.media-plus{
+    font-size: 18px;
+    display: inline-block;
+    width: 25px;
+    background-color: #CCC;
+    height: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: ease-in-out 300ms background-color, ease-in-out 300ms transform;
+}
+.media-plus:hover{
+    background-color: #39CCCC;
+    transform: rotateZ(180deg);
+    transition: ease-in-out 150ms background-color, ease-in-out 150ms transform;
+}
 .media-info-extended{
-    position: absolute;
-    left: 0;
-    top: 123px;
     background-color: #39CCCC;
     color: #FFF;
-    opacity: 0;
-    visibility: hidden;
     padding: 15px;
-    transition: ease-in-out 150ms opacity;
     width: 100%;
-    z-index: 2;
 }
+/*
 .media-wrapper:hover .media-info-extended{
     visibility: visible;
     opacity: 1;
     transition-duration: 250ms;
-}
+}*/
 .media-info-extended p:last-of-type{
     margin-bottom:0;
 }
@@ -75,7 +97,12 @@ a{
     margin-left: 85px;
 }
 .media-info>h3{
+    font-size: 20px;
     margin-top: 0;
+    margin-bottom: 6px;
+}
+.media-info>p{
+    margin-bottom:6px;
 }
 /* triangle base code gotten from http://jsfiddle.net/josedvq/3HG6d/ and adapted from there for the tag background */
 .media-rating{

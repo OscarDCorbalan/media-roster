@@ -1,7 +1,7 @@
 import webbrowser
 import os
 import re
-from media import Video, Movie, TvShow
+from media import Video, Movie, TvShow, Book
 
 # Styles and scripting for the page
 main_page_head = '''
@@ -86,13 +86,15 @@ media_extended_movie = '''
     <strong>Director</strong>: {movie_director}.<br/>
     <strong>Cast</strong>: {movie_cast}.<br/>
     <strong>Duration</strong>: {movie_duration} minutes.</p>
-
 '''
 media_extended_tvshow = '''
     <p><strong>Channel</strong>: {show_channel}.<br/>
     <strong>Seasons</strong>: {show_seasons}.<br/>
     <strong>Episodes</strong>: {show_episodes}.<br/>
     <strong>Avg. duration</strong>: {show_duration} minutes.</p>
+'''
+media_extended_book = '''
+    <p><strong>Author</strong>: {book_author}</p>
 '''
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page
@@ -106,14 +108,15 @@ def create_media_tiles_content(medias):
                 movie_duration = media.duration,
                 movie_director = media.director,
                 movie_cast = ", ".join(media.cast)) # movie.cast is a list, so join it separating with commas
-
-        if isinstance(media, TvShow):
+        elif isinstance(media, TvShow):
             extension += media_extended_tvshow.format(
-                media_title = media.title,
                 show_channel = media.channel,
                 show_seasons = media.seasons,
                 show_episodes = media.episodes,
                 show_duration = media.duration)
+        elif isinstance(media, Book):
+            extension += media_extended_book.format(
+                book_author = media.author)
 
         # Generate common info; append the tile for the media with its content filled in
         content += media_tile_content.format(

@@ -58,7 +58,9 @@ main_page_content = '''
 media_tile_content = '''
 <article class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
     <div class="media-wrapper">
-        <img class="media-image" src="{media_image}">
+        <span class="pull-left" data-toggle="tooltip" data-placement="bottom" title="Augment">
+            <img class="media-image pointer" src="{media_image}" data-target="#lightsoff" data-toggle="modal">
+        </span>
         <div class="media-info">
             <h3>{media_title}</h3>
             <p><strong>Type</strong>: {media_type}<br/>
@@ -70,7 +72,7 @@ media_tile_content = '''
         </div>
         {media_rating}
         <div class="media-info-extended display-none">
-            <img class="media-image" src="{media_image}">
+            <img class="media-image pull-left" src="{media_image}">
             <p>{media_description}</p>
             {media_tile_extended}
         </div>

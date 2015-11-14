@@ -1,20 +1,11 @@
-@media (min-width: 1200px){
-    .container {
-        width: 1170px;
-    }
-}
-.display-none{
-    display: none;
-}
-.pointer{
-    cursor: pointer;
-}
+.display-none{display: none;}
+.pointer{cursor: pointer;}
+.width-100{width: 100%;}
+
 body {
     padding-top: 80px;
     background-color: #E0E0E0;
-}
-a{
-    color:#0074D9;
+    min-width: 640px;
 }
 #navbar{
   background: #E44424;
@@ -97,7 +88,6 @@ a{
     margin-bottom:0;
 }
 .media-image{
-    float:left;
     width: 90px;
     height: 127px;
 }

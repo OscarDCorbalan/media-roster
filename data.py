@@ -172,6 +172,17 @@ def getMedia():
         "14 May 2004",
         "Wolfgang Petersen",
         ["Brad Pitt", "Eric Bana", "Orlando Bloom", "Diane Kruger", "Brian Cox", "Sean Bean", "Brendan Gleeson", "Peter O'Toole"])
+    troy = media.Movie(
+        "Kingdom of Heaven",
+        "Balian of Ibelin travels to Jerusalem during the crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
+        ["Action", "Adventure", "Drama"],
+        "img/Kingdom_of_Heaven.jpg",
+        "https://www.youtube.com/watch?v=-oO6pCRe3pM",
+        "PG-13",
+        144,
+        "6 May 2005",
+        "Ridley Scott",
+        ["Orlando Bloom", "Ghassan Massoud", "Eva Green", "Jeremy Irons", "David Thewlis", "Brendan Gleeson", "Marton Csokas", "Liam Neeson", "Edward Norton"])
 
 
 

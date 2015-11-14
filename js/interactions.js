@@ -5,6 +5,19 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
+// Make the image big on modal when clicked
+$(document).on('click', '.media-image', function(event){
+    // Create a new image with the same src
+    var img = $('<img/>', {
+        class: 'width-100',
+        src: event.target.src
+    });
+
+    const container = $('#media-extended-container');
+    container.empty().append(img);
+    container.removeClass('display-none');
+});
+
 // Show detailed media info when the '+' button is clicked
 $(document).on('click', '.glyphicon-plus-sign', function(event){
     // Find the <article> container
@@ -20,15 +33,6 @@ $(document).on('click', '.glyphicon-plus-sign', function(event){
     const container = $('#media-extended-container')
     container.empty().append(html)
     container.removeClass('display-none');
-});// Show detailed media info when the '+' button is clicked
-
-// Pause the video when the modal is closed
-$(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-    // Remove the src so the player itself gets removed, as this is the only
-    // reliable way to ensure the video stops playing in IE
-    $('#trailer-video-container').empty();
-    $('#media-extended-container').addClass('display-none');
-    $('#trailer-video-container').addClass('display-none');
 });
 
 // Start playing the video whenever the trailer modal is opened
@@ -48,4 +52,13 @@ $(document).on('click', '.glyphicon-film', function (event) {
         'frameborder': 0
     }));
     container.removeClass('display-none');
+});
+
+// Pause the video when the modal is closed
+$(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+    // Remove the src so the player itself gets removed, as this is the only
+    // reliable way to ensure the video stops playing in IE
+    $('#trailer-video-container').empty();
+    $('#media-extended-container').addClass('display-none');
+    $('#trailer-video-container').addClass('display-none');
 });

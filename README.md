@@ -1,5 +1,7 @@
 # How to run the project
 
+You can directly open `index.html` to see the constructed page. To run the project and build it again, follow these steps:
+
 1. Install [Python 2.7](https://www.python.org/downloads/release/python-2710/)  if you don't have it already.
 2. Get the project. You can either:
   * Clone the repo with git: `git clone https://github.com/twbs/bootstrap.git`.

@@ -6,6 +6,7 @@ class Media():
         self.description  = description
         self.genre = genre
         self.image = image
+        self.rating = "N/A"
 
 class Video(Media):
     """This class stores information related to audiovisual media (movies, tv shows...)"""
@@ -42,4 +43,6 @@ class TvShow(Video):
 class Book(Media):
     """This class stores information related to Books"""
     def __init__(self, book_title, book_description, book_genre, book_cover):
-        Media.__init__(self, book_title, book_description, book_genre, book_cover)
+        Media.__init__(self, book_title, book_description, book_genre, book_cover, book_author)
+        self.type = "Book"
+        self.preview = book_cover

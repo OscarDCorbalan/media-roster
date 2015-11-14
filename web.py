@@ -62,13 +62,18 @@ media_tile_content = '''
             <h3>{media_title}</h3>
             <p><strong>Type</strong>: {media_type}<br/>
             <strong>Genre</strong>: {media_genre}</p>
-            <span class="glyphicon glyphicon-plus-sign pointer" aria-hidden="true" data-target="#lightsoff" data-toggle="modal"></span>
-            <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
+            <span data-toggle="tooltip" data-placement="top" title="View more">
+                <span class="glyphicon glyphicon-plus-sign pointer" aria-hidden="true" data-target="#lightsoff" data-toggle="modal"></span>
+            </span>
+            <span data-toggle="tooltip" data-placement="top" title="View preview">
+                <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
+            </span>
             <div class="media-rating-background">
                 <span class="media-rating text-center">{media_rating}</span>
             </div>
         </div>
-        <div class="media-info-extended">
+        <div class="media-info-extended display-none">
+            <img class="media-image" src="{media_image}">        
             <p>{media_description}</p>
             {media_tile_extended}
         </div>
@@ -77,7 +82,7 @@ media_tile_content = '''
 '''
 
 media_extended_movie = '''
-    
+
 '''
 media_extended_tvshow = '''
     <p><strong>Channel</strong>: {show_channel}.<br/>

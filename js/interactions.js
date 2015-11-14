@@ -1,5 +1,10 @@
 'use strict';
 
+// Initialize Bootstrap tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 // Extend the media info when the '+' info is clicked
 $(document).on('click', '.glyphicon-plus-sign', function(event){
     // Find the <article> container

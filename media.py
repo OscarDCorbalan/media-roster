@@ -6,7 +6,7 @@ class Media():
         self.description  = description
         self.genre = genre
         self.image = image
-        self.rating = "N/A"
+        self.rating = None
 
 class Video(Media):
     """This class stores information related to audiovisual media (movies, tv shows...)"""
@@ -20,7 +20,7 @@ class Video(Media):
         if video_rating in self._VALID_RATINGS:
             self.rating = video_rating
         else:
-            self.rating = "N/A"
+            self.rating = None
 
 class Movie(Video):
     """This class stores information related to movies"""
@@ -42,7 +42,7 @@ class TvShow(Video):
 
 class Book(Media):
     """This class stores information related to Books"""
-    def __init__(self, book_title, book_description, book_genre, book_cover, book_author, book_year, book_pages, book_editor, book_isbn):
+    def __init__(self, book_title, book_description, book_genre, book_cover, book_author, book_editor, book_year, book_pages, book_isbn):
         Media.__init__(self, book_title, book_description, book_genre, book_cover)
         self.type = "Book"
         self.author = book_author

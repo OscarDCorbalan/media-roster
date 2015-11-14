@@ -81,15 +81,86 @@ def getMedia():
         "18 May 1995",
         "Mel Gibson",
         ["Mel Gibson", "Sophie Marceau", "Patrick McGoohan", "Catherine McCormack", "Angus Macfadyen"])
-    worldwar = media.Book(
-        "Worldwar",
-        "Worldwar deals with a military invasion which begins on or around May 30, 1942, by a force of aliens who call themselves the Race, a reptilian species. They had reached Earth orbit in December 1941, but delayed their attack for various reasons.",
+    worldwar1 = media.Book(
+        "Worldwar: In the Balance",
+        "First novel of the Worldwar tetralogy. The plot begins in late 1941, while the Earth is torn apart by World War II. An alien fleet arrive to conquer the planet, forcing the warring nations to make uneasy alliances against the invaders.",
         ["Sci Fi", "Alternate History"],
-        "img/Worldwar.jpg",
+        "img/Worldwar_In_the_balance.jpg",
         "Harry Turtledove",
+        "Del Rey Books",
         1994,
         488,
-        "Del Rey Books",
         "0-345-38241-2")
+    worldwar2 = media.Book(
+        "Worldwar: Tilting the Balance",
+        "As the year 1943 begins, the Race attempts to consolidate its hold over Latin America, Africa, and Australia while engaged in a fierce struggle with the advanced nations of the world: the United States, the United Kingdom, the Soviet Union, Japan, and the Greater German Reich.",
+        ["Sci Fi", "Alternate History"],
+        "img/Worldwar_Tilting_the_balance.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        1995,
+        478,
+        "0-345-38997-2")
+    worldwar3 = media.Book(
+        "Worldwar: Upsetting the Balance",
+        "The United States and Germany develop atomic weapons of their own and, alongside the Soviets, engage in a nuclear exchange with the Race. The Soviets detonte the first atomic bomb, but only because they captured a sample of plutonium from the Race.",
+        ["Sci Fi", "Alternate History"],
+        "img/Worldwar_Upsetting_the_balance.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        1996,
+        481,
+        "0-345-40221-9")
+    worldwar4 = media.Book(
+        "Worldwar: Striking the Balance",
+        "At the beginning of 1944, the Battle of Chicago has ended with the Race's forces decimated as a result of an American atomic bomb. German forces in Western Europe have successfully kept the Race from reaching the Rhine while managing to hurl back the Race's troops in Poland after a nuclear attack on Breslau.",
+        ["Sci Fi", "Alternate History"],
+        "img/Worldwar_Striking_the_balance.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        1996,
+        465,
+        "0-345-40550-1")
+    colonization1 = media.Book(
+        "Colonization: Second Contact",
+        "The novel is set in 1963, twenty one years following the end of the alternate World War II and nineteen years after the Race Invasion of Tosev 3. Earl Warren is President of the United States, Vyacheslav Molotov is the Premier of the Soviet Union, and Heinrich Himmler leads Nazi Germany.",
+        ["Sci Fi", "Alternate History"],
+        "img/Colonization_Second_Contact.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        1999,
+        466,
+        "0-345-43019-0")
+    colonization2 = media.Book(
+        "Colonization: Down to Earth",
+        "Following the nuclear attack on the colonist ships in Second Contact, the Race continues to try to find the responsible nation, along with the purpose of the Lewis and Clark, a large space station launched by the United States.",
+        ["Sci Fi", "Alternate History"],
+        "img/Colonization_Down_to_Earth.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        2000,
+        496,
+        "0-345-43020-4")
+    colonization3 = media.Book(
+        "Colonization: Aftershocks",
+        "The nuclear war between Nazi Germany and the Race ends with a German surrender after the Fuhrer is killed and replaced by Walter Dornberger, who agrees to disband the Axis Forces, withdraw German troops from occupied France and Vichy France, and disband the German rocket and nuclear forces.",
+        ["Sci Fi", "Alternate History"],
+        "img/Colonization_Aftershocks.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        2001,
+        496,
+        "0-345-43021-2")
+    homeward = media.Book(
+        "Homeward Bound",
+        "The Admiral Peary travels at between 0.35 and 0.4 c and took a little over 30 years to cross the twelve light years between Earth and Tau Ceti. The ship is named Admiral Peary for its role as a military exploration ship, after Adm. Robert Peary, who did the same in Arctic exploration.",
+        ["Sci Fi", "Alternate History"],
+        "img/Homeward_Bound.jpg",
+        "Harry Turtledove",
+        "Del Rey Books",
+        2004,
+        608,
+        "0-345-45846-X")
 
-    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, worldwar]
+
+    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3]

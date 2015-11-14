@@ -52,7 +52,6 @@ main_page_content = '''
 </html>
 '''
 
-
 # A single media entry html template
 media_tile_content = '''
 <article class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
@@ -68,10 +67,8 @@ media_tile_content = '''
             <span data-toggle="tooltip" data-placement="top" title="View preview">
                 <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
             </span>
-            <div class="media-rating-background">
-                <span class="media-rating text-center">{media_rating}</span>
-            </div>
         </div>
+        {media_rating}
         <div class="media-info-extended display-none">
             <img class="media-image" src="{media_image}">
             <p>{media_description}</p>
@@ -80,12 +77,16 @@ media_tile_content = '''
     </div>
 </article>
 '''
-
+media_rating_div = '''
+<div class="media-rating-background">
+    <span class="media-rating text-center">{media_rating}</span>
+</div>
+'''
 media_extended_movie = '''
     <p><strong>Release</strong>: {movie_release}.<br/>
     <strong>Director</strong>: {movie_director}.<br/>
-    <strong>Cast</strong>: {movie_cast}.<br/>
-    <strong>Duration</strong>: {movie_duration} minutes.</p>
+    <strong>Duration</strong>: {movie_duration} minutes.<br/>
+    <strong>Cast</strong>: {movie_cast}.</p>
 '''
 media_extended_tvshow = '''
     <p><strong>Channel</strong>: {show_channel}.<br/>
@@ -96,16 +97,16 @@ media_extended_tvshow = '''
 media_extended_book = '''
     <p><strong>Author</strong>: {book_author}.<br/>
     <strong>Published</strong>: {book_year}.<br/>
-    <strong>Pages</strong>: {book_pages} pp.<br/>
     <strong>Editor</strong>: {book_editor}.<br/>
+    <strong>Pages</strong>: {book_pages} pp.<br/>
     <strong>ISBN</strong>: {book_isbn}.</p>
 '''
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page
     content = ''
     for media in medias:
-        extension = ''
         # Generate class-specific info
+        extension = ''
         if isinstance(media, Movie):
             extension += media_extended_movie.format(
                 movie_release = media.release_date,
@@ -126,14 +127,21 @@ def create_media_tiles_content(medias):
                 book_editor = media.editor,
                 book_isbn = media.isbn)
 
+        # Generate media rating if applies
+        rating = ''
+        if media.rating is not None:
+            rating = media_rating_div.format(media_rating = media.rating)
+
+
+        media_rating = media.rating,
         # Generate common info; append the tile for the media with its content filled in
         content += media_tile_content.format(
             media_title = media.title,
             media_type = media.type,
             media_description = media.description,
             media_image = media.image,
-            media_rating = media.rating,
             media_preview = media.preview,
+            media_rating = rating,
             media_genre = ", ".join(media.genre),
             media_tile_extended = extension)
     return content

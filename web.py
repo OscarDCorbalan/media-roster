@@ -94,7 +94,11 @@ media_extended_tvshow = '''
     <strong>Avg. duration</strong>: {show_duration} minutes.</p>
 '''
 media_extended_book = '''
-    <p><strong>Author</strong>: {book_author}</p>
+    <p><strong>Author</strong>: {book_author}.<br/>
+    <strong>Published</strong>: {book_year}.<br/>
+    <strong>Pages</strong>: {book_pages} pp.<br/>
+    <strong>Editor</strong>: {book_editor}.<br/>
+    <strong>ISBN</strong>: {book_isbn}.</p>
 '''
 def create_media_tiles_content(medias):
     # The HTML content for this section of the page
@@ -116,7 +120,11 @@ def create_media_tiles_content(medias):
                 show_duration = media.duration)
         elif isinstance(media, Book):
             extension += media_extended_book.format(
-                book_author = media.author)
+                book_author = media.author,
+                book_year = media.year,
+                book_pages = media.pages,
+                book_editor = media.editor,
+                book_isbn = media.isbn)
 
         # Generate common info; append the tile for the media with its content filled in
         content += media_tile_content.format(

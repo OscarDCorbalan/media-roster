@@ -42,8 +42,12 @@ class TvShow(Video):
 
 class Book(Media):
     """This class stores information related to Books"""
-    def __init__(self, book_title, book_description, book_genre, book_cover, book_author):
+    def __init__(self, book_title, book_description, book_genre, book_cover, book_author, book_year, book_pages, book_editor, book_isbn):
         Media.__init__(self, book_title, book_description, book_genre, book_cover)
         self.type = "Book"
         self.author = book_author
+        self.year = book_year
         self.preview = book_cover
+        self.pages = book_pages
+        self.editor = book_editor
+        self.isbn = book_isbn

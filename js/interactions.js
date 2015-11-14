@@ -1,11 +1,11 @@
 'use strict';
 
-// Initialize Bootstrap tooltips
+// Initialize Bootstrap tooltips. See http://getbootstrap.com/javascript/#modals
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip()
 })
 
-// Extend the media info when the '+' info is clicked
+// Show detailed media info when the '+' button is clicked
 $(document).on('click', '.glyphicon-plus-sign', function(event){
     // Find the <article> container
     var article = event.target;
@@ -20,7 +20,7 @@ $(document).on('click', '.glyphicon-plus-sign', function(event){
     const container = $('#media-extended-container')
     container.empty().append(html)
     container.removeClass('display-none');
-});
+});// Show detailed media info when the '+' button is clicked
 
 // Pause the video when the modal is closed
 $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {

@@ -161,6 +161,18 @@ def getMedia():
         2004,
         608,
         "0-345-45846-X")
+    troy = media.Movie(
+        "Troy",
+        "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
+        ["Adventure"],
+        "img/Troy.jpg",
+        "https://www.youtube.com/watch?v=aiyQOumuSN4",
+        "PG-13",
+        163,
+        "14 May 2004",
+        "Wolfgang Petersen",
+        ["Brad Pitt", "Eric Bana", "Orlando Bloom", "Diane Kruger", "Brian Cox", "Sean Bean", "Brendan Gleeson", "Peter O'Toole"])
 
 
-    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3]
+
+    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3, troy]

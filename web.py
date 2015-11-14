@@ -64,9 +64,7 @@ media_tile_content = '''
             <span data-toggle="tooltip" data-placement="top" title="View more">
                 <span class="glyphicon glyphicon-plus-sign pointer" aria-hidden="true" data-target="#lightsoff" data-toggle="modal"></span>
             </span>
-            <span data-toggle="tooltip" data-placement="top" title="View preview">
-                <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
-            </span>
+            {media_preview}
         </div>
         {media_rating}
         <div class="media-info-extended display-none">
@@ -76,11 +74,17 @@ media_tile_content = '''
         </div>
     </div>
 </article>
+
 '''
 media_rating_div = '''
 <div class="media-rating-background">
     <span class="media-rating text-center">{media_rating}</span>
 </div>
+'''
+media_preview_span = '''
+    <span data-toggle="tooltip" data-placement="top" title="View preview">
+        <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
+    </span>
 '''
 media_extended_movie = '''
     <p><strong>Release</strong>: {movie_release}.<br/>
@@ -132,15 +136,18 @@ def create_media_tiles_content(medias):
         if media.rating is not None:
             rating = media_rating_div.format(media_rating = media.rating)
 
+        # Generate video preview button if object is of sub/type Video
+        preview = ''
+        if isinstance(media, Video):
+            preview = media_preview_span.format(media_preview = getYoutubeId(media.preview))
 
-        media_rating = media.rating,
         # Generate common info; append the tile for the media with its content filled in
         content += media_tile_content.format(
             media_title = media.title,
             media_type = media.type,
             media_description = media.description,
             media_image = media.image,
-            media_preview = media.preview,
+            media_preview = preview,
             media_rating = rating,
             media_genre = ", ".join(media.genre),
             media_tile_extended = extension)

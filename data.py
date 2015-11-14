@@ -70,7 +70,7 @@ def getMedia():
         "14 May 2004",
         "Wolfgang Petersen",
         ["Brad Pitt", "Eric Bana", "Orlando Bloom", "Diane Kruger", "Brian Cox", "Sean Bean", "Brendan Gleeson", "Peter O'Toole"])
-    troy = media.Movie(
+    kingdom = media.Movie(
         "Kingdom of Heaven",
         "Balian of Ibelin travels to Jerusalem during the crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
         ["Action", "Adventure", "Drama"],
@@ -189,4 +189,4 @@ def getMedia():
         "0-345-45846-X")
 
     # Return a list with the elements in the order we want them to be shown in the web page
-    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3, troy]
+    return [the_martian, galactica, torrente, star_trek_voy, interstellar, star_trek_ix, breaveheart, homeward, worldwar1, worldwar2, worldwar3, worldwar4, colonization1, colonization2, colonization3, troy, kingdom]

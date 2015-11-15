@@ -3,7 +3,7 @@ import media
 # Possible upgrade: use some free database to store all this info, and put here the code to retrieve it from the database
 
 def getMedia():
-    # Create some movies. See class definition for the parameters.
+    # Create some movies. See class definition for the parameter order.
     the_martian = media.Movie(
         "The Martian",
         "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet.",
@@ -82,7 +82,7 @@ def getMedia():
         "Ridley Scott",
         ["Orlando Bloom", "Ghassan Massoud", "Eva Green", "Jeremy Irons", "David Thewlis", "Brendan Gleeson", "Marton Csokas", "Liam Neeson", "Edward Norton"])
 
-    # Create some TV Shows. See class definition for the parameters.
+    # Create some TV Shows. See class definition for the parameter order.
     galactica = media.TvShow(
         "Battlestar Galactica",
         "In a distant galaxy lie The Twelve Colonies of Man, a civilization that has been at peace with an empire of machines, the Cylons, who were created as worker drones for mankind, rose in rebellion, and launched war on their masters.",
@@ -106,7 +106,7 @@ def getMedia():
         172,
         "UPN")
 
-    # Create some Books. See class definition for the parameters.
+    # Create some Books. See class definition for the parameter order.
     worldwar1 = media.Book(
         "Worldwar: In the Balance",
         "First novel of the Worldwar tetralogy. The plot begins in late 1941, while the Earth is torn apart by World War II. An alien fleet arrive to conquer the planet, forcing the warring nations to make uneasy alliances against the invaders.",

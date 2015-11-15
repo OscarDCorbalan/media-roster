@@ -7,6 +7,8 @@ from media import Video, Movie, TvShow, Book
 # html and {tags}, that are formated with the functions in the 2nd section.
 
 # Page header. Contains references to scripts and stylesheets used.
+# Note the conditional [if IE] for older IE versions. See:
+#   http://stackoverflow.com/questions/23849377/html-5-favicon-support
 main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">

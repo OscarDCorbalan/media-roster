@@ -1,5 +1,6 @@
 import webbrowser
 
+
 class Media():
     """This class represents a generic Media object.
 
@@ -23,6 +24,7 @@ class Media():
         self.genre = genre
         self.image = image
         self.rating = None
+
 
 class Video(Media):
     """This class inerhits from Media and represents an audiovisual media.
@@ -52,6 +54,7 @@ class Video(Media):
             self.rating = video_rating
         else:
             self.rating = None
+
 
 class Movie(Video):
     """This class inerhits from Video and represents a movie.
@@ -85,6 +88,7 @@ class Movie(Video):
         self.director = movie_director
         self.cast = movie_cast
 
+
 class TvShow(Video):
     """This class inerhits from Video and represents an episodic TV show/series.
 
@@ -116,6 +120,7 @@ class TvShow(Video):
         self.episodes = show_episodes
         self.channel = show_channel
         self.type = "TV Show"
+
 
 class Book(Media):
     """This class inerhits from Media and represents a book.

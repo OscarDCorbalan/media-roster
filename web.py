@@ -3,9 +3,10 @@ import os
 import re
 from media import Video, Movie, TvShow, Book
 
-# There are two sections in this script. First we have the variables that contain html and {tags}, that are formated with the functions in the second section.
+# There are two sections in this script. 1st we have the variables that contain
+# html and {tags}, that are formated with the functions in the 2nd section.
 
-# Page header. Contains references to scripts and stylesheets used, among other things.
+# Page header. Contains references to scripts and stylesheets used.
 main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -14,22 +15,26 @@ main_page_head = '''
     <title>My media collection</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+    href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Javascripts -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script
+    src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js">
+    </script>
     <script src="js/interactions.js" async></script>
 
-    <! Favicon. Note the conditional 'if IE' for it to work correctly on older IE versions. -->
+    <! Favicon. The conditional 'if IE' is for on older IE versions. -->
     <!--[if IE]><link rel="shortcut icon" href="img/favicon.png"><![endif]-->
     <link rel=icon href="img/favicon.png" sizes="16x16" type="image/png">
 </head>
 '''
 
 # The main page layout and title bar
-# In the #lightsoff modal, we have two inner hidden divs and we display one or the another (via JS) depending on the element to be shown:
+# In the #lightsoff modal, we have two inner hidden divs and we display one or
+# the another (via JS) depending on the element to be shown:
 #   the #trailer-video-container is used to show youtube videos,
 #   the #media-extended-container" is used to show texts and images.
 # In {media_tiles} goes the content generated using media_tile_content
@@ -38,18 +43,22 @@ main_page_content = '''
         <div class="modal" id="lightsoff">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+                    <a href="#" class="hanging-close"
+                    data-dismiss="modal" aria-hidden="true">
                         <img src="img/cross.png"/>
                     </a>
-                    <div class="scale-media display-none" id="trailer-video-container"></div>
-                    <div class="scale-media display-none" id="media-extended-container"></div>
+                    <div id="trailer-video-container"
+                    class="scale-media display-none"></div>
+                    <div id="media-extended-container"
+                    class="scale-media display-none"></div>
                 </div>
             </div>
         </div>
 
         <!-- Main Page Content -->
         <div class="container">
-            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar navbar-inverse navbar-fixed-top"
+            role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <a id="navbar-title" class="navbar-brand" href="#">
@@ -67,27 +76,34 @@ main_page_content = '''
 </html>
 '''
 
-# A single media entry html template composed of various elements. Note we use bootstrap (col-xx-y) to have responsive elements. What's everything:
-#   The .pull-left span around the image is used to show a tooltip when hovering an image. We set clicking on the image to open it full-size in a modal. The reason
-#    of using a span around the img is because we can't have two 'data-toggle' (tooltip and modal) attributes in the same element.
-#   The .media info contains the basic information of the Media: title, type and genre. It also has a span with a '+' icon that shows more information when clicked
-#    and, when there's a youtube a video, the {media_preview} has another span with a movie icon that opens the trailer when clicked. Note these two spans also
-#    show tooltips when hovering them, and that we are also using an outer span, for the same reason that the img inside the span.
-#   The {media_rating}, if the Media has a (valid) rating, puts it in a corner of the box via the code in media_rating_div
-#   The last .media-info-extended div contains hidden html that is shown in a modal when clicking the '+' icon. The {media_tile_extended} generates content
-#    depending on the Media type (e.g. the cast of a Movie or the number of pages of a Book)
+# A single media entry html template composed of various elements. Note we use
+# bootstrap (col-xx-y) to have responsive tiles. What's everything:
+# -The span around the image is used to show a tooltip when hovering
+#  an image .Clicking on the image to open it full-size in a modal.
+#  The reason of using a span around the img is because we can't have two
+#  'data-toggle' (tooltip and modal) attributes in the same element.
+# -The .media info contains the basic information of the Media: title, type,
+#  genre and a '+' icon to show more information and if there's a youtube
+#  a movie icon that opens the trailer when clicked.
+# -The {media_rating} shows the rating in a corner of the tile.
+# -The last .media-info-extended div contains hidden html that is shown in a
+#  modal when clicking the '+' icon.
 media_tile_content = '''
 <article class="col-lg-4 col-md-6 col-sm-12 col-xs-12 media-tile">
     <div class="media-wrapper">
-        <span class="pull-left" data-toggle="tooltip" data-placement="bottom" title="Augment">
-            <img class="media-image pointer" src="img/media/{media_image}" data-target="#lightsoff" data-toggle="modal">
+        <span class="pull-left" title="Augment"
+        data-toggle="tooltip" data-placement="bottom">
+            <img class="media-image pointer" src="img/media/{media_image}"
+            data-target="#lightsoff" data-toggle="modal"/>
         </span>
         <div class="media-info">
             <h3>{media_title}</h3>
             <p><strong>Type</strong>: {media_type}<br/>
             <strong>Genre</strong>: {media_genre}</p>
             <span data-toggle="tooltip" data-placement="top" title="View more">
-                <span class="glyphicon glyphicon-plus-sign pointer" aria-hidden="true" data-target="#lightsoff" data-toggle="modal"></span>
+                <span class="glyphicon glyphicon-plus-sign pointer"
+                aria-hidden="true" data-target="#lightsoff" data-toggle="modal">
+                </span>
             </span>
             {media_preview}
         </div>
@@ -101,7 +117,8 @@ media_tile_content = '''
 </article>
 '''
 
-# This is the code that puts the rating over a colored background in a corner of the media box
+# This is the code that puts the rating over a colored background in a
+# corner of the media box
 media_rating_div = '''
 <div class="media-rating-background">
     <span class="media-rating text-center">{media_rating}</span>
@@ -111,7 +128,9 @@ media_rating_div = '''
 # Movie icon that when clicked shows the trailer.
 media_preview_span = '''
     <span data-toggle="tooltip" data-placement="top" title="View preview">
-        <span class="glyphicon glyphicon-film pointer" aria-hidden="true" data-trailer-youtube-id={media_preview} data-toggle="modal" data-target="#lightsoff"></span>
+        <span class="glyphicon glyphicon-film pointer" aria-hidden="true"
+        data-trailer-youtube-id={media_preview} data-toggle="modal"
+        data-target="#lightsoff"></span>
     </span>
 '''
 
@@ -159,7 +178,8 @@ def create_media_tiles_content(medias):
                 movie_release = media.release_date,
                 movie_duration = media.duration,
                 movie_director = media.director,
-                movie_cast = ", ".join(media.cast)) # movie.cast is a list, so join it separating with commas
+                # movie.cast is a list, so join it separating with commas
+                movie_cast = ", ".join(media.cast))
         elif isinstance(media, TvShow):
             extension += media_extended_tvshow.format(
                 show_channel = media.channel,
@@ -182,9 +202,10 @@ def create_media_tiles_content(medias):
         # 3) Generate video preview button if object is of sub/class Video
         preview = ''
         if isinstance(media, Video):
-            preview = media_preview_span.format(media_preview = getYoutubeId(media.preview))
+            preview = media_preview_span.format(
+                media_preview = getYoutubeId(media.preview))
 
-        # 4) Generate info common to all medias and append any info generated in steps 1-3.
+        # 4) Generate info common to all medias and append any info generated.
         # Note that we are concatenating all tiles using the '+=' operator.
         content += media_tile_content.format(
             media_title = media.title,
@@ -212,9 +233,9 @@ def getYoutubeId(youtubeURL):
         The id in the youtubeURL.
     """
 
-    youtube_id_match = re.search(r'(?<=v=)[^&#]+', youtubeURL)
-    youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', youtubeURL)
-    preview = (youtube_id_match.group(0) if youtube_id_match else None)
+    id_match = re.search(r'(?<=v=)[^&#]+', youtubeURL)
+    id_match = id_match or re.search(r'(?<=be/)[^&#]+', youtubeURL)
+    preview = (id_match.group(0) if id_match else None)
     return preview
 
 def open_media_page(media):

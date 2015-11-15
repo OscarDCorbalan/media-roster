@@ -52,7 +52,10 @@ main_page_content = '''
             <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a id="navbar-title" class="navbar-brand" href="#">My media collection: movies, tv shows, books...</a>
+                        <a id="navbar-title" class="navbar-brand" href="#">
+                            <img src="img/favicon.png"/>
+                            My media collection: movies, tv shows, books...
+                        </a>
                     </div>
                 </div>
             </div>
@@ -137,9 +140,8 @@ media_extended_book = '''
     <strong>ISBN</strong>: {book_isbn}.</p>
 '''
 
-
 def create_media_tiles_content(medias):
-     """Generates a tile box for every media passed.
+    """Generates a tile box for every media passed.
 
     Args:
         medias: List of Media instances.
@@ -148,7 +150,6 @@ def create_media_tiles_content(medias):
         Resulting html code of running every media through
         the code in media_tile_content.
     """
-
     content = ''
     for media in medias:
         # 1) Generate class-specific info and save it in extension
@@ -197,7 +198,7 @@ def create_media_tiles_content(medias):
     return content
 
 def getYoutubeId(youtubeURL):
-     """Extract the youtube ID from the youtubeURL.
+    """Extract the youtube ID from the youtubeURL.
 
     Uses regular expresions to extract the id of ayoutube url.
     For example, given:
@@ -217,18 +218,17 @@ def getYoutubeId(youtubeURL):
     return preview
 
 def open_media_page(media):
-     """Generates an index.html page with the info passed.
+    """Generates an index.html page with the info passed.
 
-     For every Media in the list, it generates a box that shows
-     an image, title, type and genre, plus content that depends
-     on the type of media.
+    For every Media in the list, it generates a box that shows
+    an image, title, type and genre, plus content that depends
+    on the type of media.
 
-     When finished, opens the generated index.html.
+    When finished, opens the generated index.html.
 
     Args:
         media: List of Media instances.
     """
-
     # Create or overwrite the output file
     output_file = open('index.html', 'w')
 

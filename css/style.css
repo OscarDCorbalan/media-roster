@@ -16,6 +16,9 @@ body {
 #navbar-title{
     color: #FFF;
 }
+#navbar-title img{
+    margin-right: 3px;
+}
 #trailer .modal-dialog {
     margin-top: 100px;
     width: 70%;

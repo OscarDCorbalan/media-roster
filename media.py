@@ -1,5 +1,35 @@
 import webbrowser
 
+class Factory():
+    """This class takes mongo documents and creates instances"""
+    def __init__(self):  pass
+
+
+    def create(self, cls, doc):
+        """Creates an instance of the class passed with the information inside
+        the document passed.
+
+        Args:
+            cls: class to instantiate
+            doc: document (retrieved from MongoDB)
+
+        Returns:
+            A new instance of the cls class.
+        """
+        if cls is Movie:
+            return Movie(doc['title'], doc['storyline'], doc['genre'],
+                        doc['poster'], doc['trailer'], doc['rating'],
+                        doc['duration'], doc['release_date'], doc['director'],
+                        doc['cast'])
+        elif cls is TvShow:
+            return TvShow(doc['title'], doc['storyline'], doc['genre'],
+                        doc['poster'], doc['trailer'], doc['rating'],
+                        doc['duration'], doc['seasons'], doc['episodes'],
+                        doc['channel'])
+        elif cls is Book:
+            return Book(doc['title'], doc['storyline'], doc['genre'],
+                        doc['image'], doc['author'], doc['editor'],
+                        doc['year'], doc['pages'], doc['isbn'])
 
 class Media():
     """This class represents a generic Media object.
@@ -74,7 +104,6 @@ class Movie(Video):
         movie_director: (String) name of the director.
         movie_cast: (List<String>) list with the names of the cast.
     """
-
     def __init__(
         self, movie_title, movie_storyline, movie_genre, movie_poster,
         movie_trailer, movie_rating, movie_duration, movie_release_date,
@@ -88,6 +117,19 @@ class Movie(Video):
         self.director = movie_director
         self.cast = movie_cast
 
+    @classmethod
+    def create_from_document(Movie, doc):
+        self.__init__(doc['title'],
+                        doc['storyline'],
+                        doc['genre'],
+                        doc['poster'],
+                        doc['trailer'],
+                        doc['rating'],
+                        doc['duration'],
+                        doc['release_date'],
+                        doc['director'],
+                        doc['cast'])
+        return self
 
 class TvShow(Video):
     """This class inerhits from Video and represents an episodic TV show/series.

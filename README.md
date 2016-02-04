@@ -20,7 +20,7 @@ The script will build an index.html file and automatically open it in your brows
 # What's included
 
 Within the download you'll find the following directories and files, logically grouping common assets. You'll see something like this:
-```
+`
 ├── css/  
 │   └── style.css  
 ├── js/  
@@ -33,6 +33,7 @@ Within the download you'll find the following directories and files, logically g
 ├── index.html  
 ├── build.py  
 ├── data.py  
-├── media.py  
+├── media.py
+├── mongo.py
 └── web.py  
 `

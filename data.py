@@ -1,7 +1,6 @@
 import media
 
-# Possible upgrade: use some free database to store all this info,
-# and put here the code to retrieve it from the database
+# All this info ends up inside a Mongo database
 
 def getMedia():
     # Create some movies. See class definition for the parameter order.

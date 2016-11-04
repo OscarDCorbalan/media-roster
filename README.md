@@ -1,5 +1,5 @@
 # Check the generated index.html
-You can directly open http://oscardoc.github.io/media-roster/.  
+You can directly open http://oscardcorbalan.github.io/media-roster/.  
 You can also do step 2 in 'How to run' and open `index.html` locally.
 
 # How to run the project
@@ -10,7 +10,7 @@ To run the project and build index.html again, follow these steps:
 2. Grab a copy of the project. You can either:
   * Clone the repo with git: `git clone https://github.com/twbs/bootstrap.git`.
   * [Clone with GitHub Desktop](github-windows://openRepo/https://github.com/twbs/bootstrap).
-  * [Download the latest release](https://github.com/OscarDoc/media-roster/archive/master.zip)
+  * [Download the latest release](https://github.com/OscarDCorbalan/media-roster/archive/master.zip)
 3. Open a command-line window.
 4. Direct to the folder of the project.
 5. Once in it, run `python build.py`.

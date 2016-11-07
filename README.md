@@ -8,7 +8,7 @@ To run the project and build index.html again, follow these steps:
 
 1. Install [Python 2.7](https://www.python.org/downloads/release/python-2710/)  if you don't have it already.
 2. Grab a copy of the project. You can either:
-  * Clone the repo with git: `git clone https://github.com/OscarDCorbalan//media-roster.git`.
+  * Clone the repo with git: `git clone https://github.com/OscarDCorbalan/media-roster.git`.
   * [Clone with GitHub Desktop](github-windows://openRepo/https://github.com/twbs/bootstrap).
   * [Download the latest release](https://github.com/OscarDCorbalan/media-roster/archive/master.zip)
 3. Open a command-line window.

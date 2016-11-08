@@ -12,26 +12,38 @@ from media import Video, Movie, TvShow, Book
 main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My media collection</title>
+	<head>
+	    <meta charset="utf-8">
+	    <title>My media collection</title>
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet"
-    href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+	    <!-- Stylesheets -->
+	    <link rel="stylesheet"
+	    href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Javascripts -->
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script
-    src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js">
-    </script>
-    <script src="js/interactions.js" async></script>
+	    <!-- Javascripts -->
+	    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	    <script
+	    src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js">
+	    </script>
+	    <script src="js/interactions.js" async></script>
 
-    <! Favicon. The conditional 'if IE' is for on older IE versions. -->
-    <!--[if IE]><link rel="shortcut icon" href="img/favicon.png"><![endif]-->
-    <link rel=icon href="img/favicon.png" sizes="16x16" type="image/png">
-</head>
+	    <! Favicon. The conditional 'if IE' is for on older IE versions. -->
+	    <!--[if IE]><link rel="shortcut icon" href="img/favicon.png"><![endif]-->
+	    <link rel=icon href="img/favicon.png" sizes="16x16" type="image/png">
+	</head>
+	<body>
+'''
+
+# Page footer.
+main_page_footer = '''
+		<footer class="navbar navbar-inverse font-white">
+        	<div class="container">
+				Project by: Oscar D. Corbalan, <a href="http://www.oscardc.com">www.oscardc.com</a>.
+			</div>
+		</footer>
+	</body>
+</html>
 '''
 
 # The main page layout and title bar
@@ -41,7 +53,6 @@ main_page_head = '''
 #   the #media-extended-container" is used to show texts and images.
 # In {media_tiles} goes the content generated using media_tile_content
 main_page_content = '''
-    <body>
         <div class="modal" id="lightsoff">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -74,8 +85,6 @@ main_page_content = '''
         <div class="container">
             {media_tiles}
         </div>
-    </body>
-</html>
 '''
 
 # A single media entry html template composed of various elements. Note we use
@@ -260,7 +269,7 @@ def open_media_page(media):
         media_tiles = create_media_tiles_content(media))
 
     # Output the file
-    output_file.write(main_page_head + rendered_content)
+    output_file.write(main_page_head + rendered_content + main_page_footer)
     output_file.close()
 
     # open the output file in the browser (in a new tab, if possible)

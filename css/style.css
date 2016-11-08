@@ -13,11 +13,22 @@ body {
 .navbar-brand{
     color: #91C3DC;
 }
-#navbar-title{
+#navbar-title,
+.font-white{
     color: #FFF;
 }
 #navbar-title img{
     margin-right: 3px;
+}
+footer.navbar{
+	margin-bottom: 0;
+	margin-top: 20px;
+	border-radius: 0;
+    min-height: initial;
+}
+footer.navbar a {
+	color: #8cbee8;
+	text-decoration: underline;
 }
 #trailer .modal-dialog {
     margin-top: 100px;
